@@ -1,9 +1,10 @@
 <script lang="ts">
-	import useStyles from './Button.styles';
-	import {getSharedColorScheme, useDwebbleTheme} from "../../styles/src";
+	import useStyles, {heights} from './Button.styles';
+	import {getSharedColorScheme, useDwebbleContext} from "../../styles/src";
+	import {Loader} from "../Loader";
 	import type { ButtonVariant } from "./Button.types";
 	import type {DwebbleColor, DwebbleSize} from "../../styles/src";
-	import {spawnContext} from "../../styles/src/theme/DwebbleProvider.ts";
+	import type {LoaderProps} from "../Loader";
 
 	export let type = "button";
 	export let variant: ButtonVariant = "filled";
@@ -18,8 +19,9 @@
 	export let loaderPosition: "left" | "right" = "left";
 	export let classNames: string = "";
 	export let styles = {};
+	export let loaderProps: Partial<LoaderProps> = {};
 
-	const { dwebbleTheme } = spawnContext();
+	const { dwebbleTheme } = useDwebbleContext();
 
 	let classes, cx, theme;
 
@@ -52,7 +54,7 @@
 	<span class={classes.inner}>
 		{#if $$slots.leftIcon || (loading && loaderPosition === "left")}
 			<span class={cx(classes.icon, classes.leftIcon)}>
-
+				<Loader color={colors.color} size={theme.fn.size({size, sizes: heights}) / 2} {...loaderProps} />
 			</span>
 		{/if}
 

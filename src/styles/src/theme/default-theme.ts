@@ -6,6 +6,7 @@ export const DWEBBLE_COLORS = Object.keys(DEFAULT_COLORS);
 export const DWEBBLE_SIZES = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
 
 export const _DEFAULT_THEME: DwebbleThemeBase = {
+	loader: 'oval',
 	colorScheme: "light",
 	white: '#fff',
 	black: '#000',

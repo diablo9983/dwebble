@@ -1,8 +1,9 @@
 import {getContext, hasContext, setContext} from "svelte";
 import {DEFAULT_THEME} from "./default-theme";
 import type { Options as EmotionCacheOptions } from "@emotion/cache";
-import {writable} from "svelte/store";
-import {DwebbleTheme} from "./types";
+import {Writable, writable} from "svelte/store";
+import type {DwebbleTheme} from "./types";
+import type {DwebbleThemeContext} from "./types/DwebbleProvider";
 
 function getContextValue(key) {
 	const context = getContext("dwebble");
@@ -32,15 +33,16 @@ export function useDwebbleEmotionOptions(): EmotionCacheOptions {
 	return emotionOptions || { key: 'dwebble', prepend: true };
 }
 
-export function spawnContext() {
-	let dwebbleTheme = writable<DwebbleTheme>(DEFAULT_THEME);
+export function useDwebbleContext() {
+	let dwebbleTheme: Writable<DwebbleTheme>;
 
 	if (!hasContext('dwebble')) {
+		dwebbleTheme = writable<DwebbleTheme>(DEFAULT_THEME);
 		setContext('dwebble', {
 			theme: dwebbleTheme
 		});
 	} else {
-		const context = getContext('dwebble');
+		const context: DwebbleThemeContext = getContext('dwebble');
 		dwebbleTheme = context.theme;
 	}
 

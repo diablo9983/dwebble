@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from "./components/Button/Button.svelte";
-	import DwebbleProvider from "./styles/src/theme/DwebbleProvider.svelte";
-	import {DWEBBLE_COLORS, DwebbleTheme} from "./styles/src/index.js";
+	import {DWEBBLE_COLORS, DwebbleProvider} from "./styles/src";
+	import type {DwebbleTheme} from "./styles/src";
 
 	export let name: string;
 

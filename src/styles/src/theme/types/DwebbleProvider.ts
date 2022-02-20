@@ -1,6 +1,7 @@
 import type {DwebbleTheme} from "./DwebbleTheme";
 import type {Options as EmotionCacheOptions} from "@emotion/cache";
 import type {CSSObject} from "../../tss";
+import type {Writable} from "svelte/store";
 
 export type ProviderStyles = Record<
 	string,
@@ -8,7 +9,7 @@ export type ProviderStyles = Record<
 >;
 
 export interface DwebbleThemeContext {
-	theme: DwebbleTheme;
+	theme: Writable<DwebbleTheme>;
 	styles: ProviderStyles;
 	emotionOptions: EmotionCacheOptions;
 }

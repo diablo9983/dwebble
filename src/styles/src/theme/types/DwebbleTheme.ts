@@ -4,6 +4,7 @@ import type {DwebbleNumberSize, DwebbleSize, DwebbleSizes} from "./DwebbleSize";
 import type {CSSObject} from "../../tss";
 import type {DeepPartial} from "./DeepPartial";
 
+export type LoaderType = 'bars' | 'oval' | 'dots';
 export type DwebbleThemeOther = Record<string, any>;
 
 export interface HeadingStyle {
@@ -27,6 +28,7 @@ interface DwebbleThemeFunctions {
 }
 
 export interface DwebbleTheme {
+	loader: LoaderType;
 	colorScheme: "light" | "dark";
 	white: string;
 	black: string;
