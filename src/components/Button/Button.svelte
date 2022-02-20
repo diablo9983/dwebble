@@ -49,12 +49,14 @@
 	class={cx(classes[variant], { [classes.loading]: loading }, classes.root )}
 	{type}
 	disabled={disabled || loading}
-	{...$$props}
+	{...$$restProps}
 >
 	<span class={classes.inner}>
 		{#if $$slots.leftIcon || (loading && loaderPosition === "left")}
 			<span class={cx(classes.icon, classes.leftIcon)}>
-				<Loader color={colors.color} size={theme.fn.size({size, sizes: heights}) / 2} {...loaderProps} />
+				{#if loading}
+					<Loader color={colors.color} size={theme.fn.size({size, sizes: heights}) / 2} {...loaderProps} />
+				{/if}
 			</span>
 		{/if}
 
@@ -64,7 +66,9 @@
 
 		{#if $$slots.rightIcon || (loading && loaderPosition === "right")}
 			<span class={cx(classes.icon, classes.rightIcon)}>
-
+				{#if loading}
+					<Loader color={colors.color} size={theme.fn.size({size, sizes: heights}) / 2} {...loaderProps} />\
+				{/if}
 			</span>
 		{/if}
 	</span>

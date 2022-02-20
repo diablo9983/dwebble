@@ -6,7 +6,6 @@
 	export let name: string;
 
 	let theme: Partial<DwebbleTheme> = {
-		colorScheme: "dark",
 		colors: {
 			"ocean-dark": ["#E9EEF8", "#BCCCEA", "#94AEDE", "#7294D3", "#537DC9", "#3B6ABE", "#345DA7", "#2D5090", "#26457C", "#213B6A"]
 		}
@@ -19,15 +18,15 @@
 		}
 	}
 
-	const variants = ['light', 'outline', 'subtle'];
+	const variants = ['light', 'outline', 'subtle', 'default'];
 </script>
 
 <DwebbleProvider {theme}>
 	<main>
 		<h1>Hello {name}!</h1>
 
-		<button on:click={() => setScheme("light")}>Light</button>
-		<button on:click={() => setScheme("dark")}>Dark</button>
+		<button disabled={!theme.colorScheme || theme.colorScheme === "light"} on:click={() => setScheme("light")}>Light</button>
+		<button disabled={theme.colorScheme === "dark"} on:click={() => setScheme("dark")}>Dark</button>
 		<hr>
 
 		{#each DWEBBLE_COLORS.concat(["ocean-dark"]) as color}

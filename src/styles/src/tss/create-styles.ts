@@ -1,4 +1,4 @@
-import type {DwebbleTheme} from "../theme/types/DwebbleTheme";
+import type {DwebbleTheme} from "../theme";
 import type {CSSObject} from "./types";
 import {useDwebbleTheme} from "../theme";
 import {useDwebbleThemeStyles} from "../theme/DwebbleProvider";
