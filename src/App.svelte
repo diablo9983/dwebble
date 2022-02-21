@@ -1,7 +1,11 @@
 <script lang="ts">
-	import Button from "./components/Button/Button.svelte";
+	/**************/
+	/* PLAYGROUND */
+	/**************/
+
 	import {DWEBBLE_COLORS, DwebbleProvider} from "./styles/src";
 	import type {DwebbleTheme} from "./styles/src";
+	import TextInput from "./components/TextInput/TextInput.svelte";
 
 	export let name: string;
 
@@ -29,18 +33,7 @@
 		<button disabled={theme.colorScheme === "dark"} on:click={() => setScheme("dark")}>Dark</button>
 		<hr>
 
-		{#each DWEBBLE_COLORS.concat(["ocean-dark"]) as color}
-			<div style="display: flex; justify-content: center; gap: 10px">
-				<Button {color}>
-					Filled
-				</Button>
-				{#each variants as variant}
-					<Button {variant} {color}>
-						{color}
-					</Button>
-				{/each}
-			</div>
-		{/each}
+		<TextInput />
 	</main>
 </DwebbleProvider>
 
