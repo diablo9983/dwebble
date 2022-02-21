@@ -21,11 +21,11 @@
 	export let styles = {};
 	export let loaderProps: Partial<LoaderProps> = {};
 
-	const { dwebbleTheme } = useDwebbleContext();
+	const { dwebbleTheme, dwebbleStyles } = useDwebbleContext();
 
 	let classes, cx, theme;
 
-	$: if ($dwebbleTheme) {
+	$: if ($dwebbleTheme || $dwebbleStyles) {
 		const elementStyles = useStyles({
 			radius,
 			color,

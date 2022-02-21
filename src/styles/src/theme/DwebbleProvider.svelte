@@ -6,11 +6,19 @@
 	import NormalizeCSS from "./NormalizeCSS.svelte";
 
 	export let theme = {};
+	export let styles = {};
+	export let emotionOptions = { key: "dwebble", prepend: true };
 
-	let { dwebbleTheme } = useDwebbleContext();
+	let { dwebbleTheme, dwebbleStyles, dwebbleEmotionOptions } = useDwebbleContext();
 
 	$: if (theme) {
 		$dwebbleTheme = mergeTheme(DEFAULT_THEME, theme);
+	}
+	$: if (styles) {
+		$dwebbleStyles = styles;
+	}
+	$: if (emotionOptions) {
+		$dwebbleEmotionOptions = emotionOptions;
 	}
 </script>
 

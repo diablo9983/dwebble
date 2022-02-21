@@ -10,6 +10,6 @@ export type ProviderStyles = Record<
 
 export interface DwebbleThemeContext {
 	theme: Writable<DwebbleTheme>;
-	styles: ProviderStyles;
-	emotionOptions: EmotionCacheOptions;
+	styles: Writable<ProviderStyles>;
+	emotionOptions: Writable<EmotionCacheOptions>;
 }
