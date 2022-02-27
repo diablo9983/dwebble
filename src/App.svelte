@@ -28,13 +28,14 @@
 <DwebbleProvider {theme}>
 	<main>
 		<h1>Hello {name}!</h1>
-
 		<button disabled={!theme.colorScheme || theme.colorScheme === "light"} on:click={() => setScheme("light")}>Light</button>
 		<button disabled={theme.colorScheme === "dark"} on:click={() => setScheme("dark")}>Dark</button>
 		<hr>
-
-		<TextInput />
 	</main>
+
+	<div>
+		<TextInput label="Text Input" />
+	</div>
 </DwebbleProvider>
 
 <style>
@@ -43,6 +44,9 @@
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
+	}
+	div {
+		padding: 1em;
 	}
 
 	h1 {

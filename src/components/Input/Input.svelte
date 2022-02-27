@@ -2,40 +2,41 @@
 	import {SvelteComponent} from "svelte";
 	import useStyles from "./Input.styles";
 	import type {InputVariant} from "./Input.types";
-	import type {DwebbleNumberSize, DwebbleSize} from "../../styles/src";
-	import {useDwebbleContext} from "../../styles/src";
-
-	let className;
+	import type {CSSObject, DwebbleTheme, DwebbleNumberSize, DwebbleSize} from "../../styles/src";
+	import {extractMargins, useDwebbleContext} from "../../styles/src";
+	import {CSSProperties} from "@emotion/serialize";
+	import {ProviderStyles} from "../../styles/src/theme/types/DwebbleProvider";
+	import Box from "../Box/Box.svelte";
 
 	/* id is used to bind input and label, if not passed unique id will be generated for each input */
-	export let id: string = "";
+	export let id = "";
 
 	/* Input element type */
 	export let type = "text";
 
 	/* Sets border color to red and aria-invalid=true on input element */
-	export let invalid: boolean = false;
+	export let invalid = false;
 
 	/* Adds icon on the left side of input */
 	export let icon: SvelteComponent|null = null;
 
 	/* Width of icon section in px */
-	export let iconWidth: number = 0;
+	export let iconWidth = 0;
 
 	/* Right section of input, similar to icon but on the right */
 	export let rightSection: SvelteComponent|null = null;
 
 	/* Width of right section, is used to calculate input padding-right */
-	export let rightSectionWidth: number = 0;
+	export let rightSectionWidth = 0;
 
 	/* Props spread to rightSection div element */
 	export let rightSectionProps: Record<string, any> = {};
 
 	/* Properties spread to root element */
-	export let wrapperProps: { [key: string]: any } = {};
+	export let wrapperProps: Record<string, any> = {};
 
 	/* Sets required on input element */
-	export let required: boolean = false;
+	export let required = false;
 
 	/* Input border-radius from theme or number to set border-radius in px */
 	export let radius: DwebbleNumberSize = "sm";
@@ -44,10 +45,10 @@
 	export let variant: InputVariant = "default";
 
 	/* Will input have multiple lines? */
-	export let multiline: boolean = false;
+	export let multiline = false;
 
 	/* Disabled input state */
-	export let disabled: boolean = false;
+	export let disabled = false;
 
 	/* Input size */
 	export let size: DwebbleSize = "sm";
@@ -55,10 +56,26 @@
 	/** Static css selector base */
 	export let __staticSelector: string;
 
+	/* Shared Props */
+	/* Additional class names */
+	export let classNames: Partial<Record<string, string>> = {};
+
+	/* Component style */
+	export let style: CSSProperties|null = null;
+
+	/* Component Styles API style */
+	export let styles: ProviderStyles = {};
+
+	/* Component root element style */
+	export let sx: CSSObject | ((theme: DwebbleTheme) => CSSObject) = {};
+
+	/* Component additional class name */
+	let className = "";
 	export { className as class };
-	export let classNames: string = "";
-	export let style = "";
-	export let styles = {};
+
+	/* Component margins */
+	const { margins, rest } = extractMargins($$restProps);
+	/* Shared props end */
 
 	let classes, cx;
 	const { dwebbleTheme, dwebbleStyles } = useDwebbleContext();
@@ -83,9 +100,11 @@
 	}
 </script>
 
-<div
+<Box
 	class={cx(classes.wrapper, className)}
-	style={style}
+	{sx}
+	{style}
+	{...margins}
 	{...wrapperProps}
 >
 	{#if icon}
@@ -93,6 +112,10 @@
 	{/if}
 
 	<input
+		on:input
+		on:change
+		{id}
+		{...rest}
 		{required}
 		aria-invalid={invalid}
 		{disabled}
@@ -108,4 +131,4 @@
 			{rightSection}
 		</div>
 	{/if}
-</div>
+</Box>

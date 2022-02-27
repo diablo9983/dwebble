@@ -5,24 +5,25 @@
 	import {useUuid} from "../../hooks/useUuid";
 	import type {DwebbleSize} from "../../styles/src";
 	import type {TextInputTypes} from "./TextInput.types";
+	import {extractMargins} from "../../styles/src";
 	import type {ProviderStyles} from "../../styles/src/theme/types/DwebbleProvider";
-
-	let className;
+	import {CSSObject, DwebbleTheme} from "../../styles/src";
+	import type {CSSProperties} from "@emotion/serialize";
 
 	/* Adds red asterisk on the right side of label and sets required on input element */
-	export let required: boolean = false;
+	export let required = false;
 
 	/* Input label, displayed before input */
-	export let label: string = "";
+	export let label = "";
 
 	/* Input description, displayed after label */
-	export let description: string = "";
+	export let description = "";
 
 	/* Displays error message after input */
 	export let error: SvelteComponent|null = null;
 
 	/* id is used to bind input and label, if not passed unique id will be generated for each input */
-	export let id: string = "";
+	export let id = "";
 
 	/* Adds icon on the left side of input */
 	export let icon: SvelteComponent|null = null;
@@ -36,14 +37,28 @@
 	/* Input size */
 	export let size: DwebbleSize = "sm";
 
-	export let classNames: string = "";
-	export let style: string = "";
+	/* Shared Props */
+	/* Additional class names */
+	export let classNames: Partial<Record<string, string>> = {};
+
+	/* Component style */
+	export let style: CSSProperties|null = null;
+
+	/* Component Styles API style */
 	export let styles: ProviderStyles = {};
-	export let sx: object = {};
+
+	/* Component root element style */
+	export let sx: CSSObject | ((theme: DwebbleTheme) => CSSObject) = {};
+
+	/* Component additional class name */
+	let className = "";
 	export { className as class };
 
-	// const { margins, restProps } = extractMargins($$restProps);
+	/* Component margins */
+	const { margins } = extractMargins($$restProps);
+	/* Shared props end */
 
+	/* Unique uuid */
 	const uuid = useUuid(id);
 </script>
 
@@ -59,9 +74,12 @@
 	{classNames}
 	{styles}
 	{sx}
+	{...margins}
 	__staticSelector="TextInput"
 	{...wrapperProps}>
 	<Input
+		on:input
+		on:change
 		{...$$restProps}
 		{required}
 		id={uuid}
