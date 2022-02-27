@@ -6,6 +6,7 @@
 	import {DWEBBLE_COLORS, DwebbleProvider} from "./styles/src";
 	import type {DwebbleTheme} from "./styles/src";
 	import TextInput from "./components/TextInput/TextInput.svelte";
+	import PasswordInput from "./components/PasswordInput/PasswordInput.svelte";
 
 	export let name: string;
 
@@ -35,6 +36,8 @@
 
 	<div>
 		<TextInput label="Text Input" />
+
+		<PasswordInput label="Password Input" />
 	</div>
 </DwebbleProvider>
 

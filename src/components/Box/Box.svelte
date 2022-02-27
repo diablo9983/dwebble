@@ -20,8 +20,6 @@
 
 	/* Component margins */
 	const { margins, rest } = extractMargins($$restProps);
-
-	console.log({ rest })
 	/* Shared props end */
 </script>
 

@@ -74,8 +74,6 @@ export default createStyles(
 			gradient: { from: gradientFrom, to: gradientTo, deg: gradientDeg },
 		});
 
-		console.log({ align })
-
 		return {
 			root: {
 				...theme.fn.fontStyles(),

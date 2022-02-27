@@ -17,14 +17,8 @@
 	/* Sets border color to red and aria-invalid=true on input element */
 	export let invalid = false;
 
-	/* Adds icon on the left side of input */
-	export let icon: SvelteComponent|null = null;
-
 	/* Width of icon section in px */
 	export let iconWidth = 0;
-
-	/* Right section of input, similar to icon but on the right */
-	export let rightSection: SvelteComponent|null = null;
 
 	/* Width of right section, is used to calculate input padding-right */
 	export let rightSectionWidth = 0;
@@ -91,7 +85,7 @@
 				invalid,
 				rightSectionWidth,
 				iconWidth,
-				withRightSection: !!rightSection,
+				withRightSection: !!$$slots.rightSection,
 			},
 			{classNames, styles, name: __staticSelector}
 		);
@@ -107,28 +101,46 @@
 	{...margins}
 	{...wrapperProps}
 >
-	{#if icon}
-		<div class={classes.icon}>{icon}</div>}
+	{#if $$slots.icon}
+		<div class={classes.icon}>
+			<slot name="icon" />
+		</div>
 	{/if}
 
-	<input
-		on:input
-		on:change
-		{id}
-		{...rest}
-		{required}
-		aria-invalid={invalid}
-		{disabled}
-		class={cx(classes[`${_variant}Variant`], classes.input, {
-			[classes.withIcon]: icon,
-			[classes.invalid]: invalid,
-			[classes.disabled]: disabled
-		})}
-	/>
 
-	{#if rightSection}
+	{#if !$$slots.default}
+		<input
+			on:input
+			on:change
+			{id}
+			{...rest}
+			{required}
+			aria-invalid={invalid}
+			{disabled}
+			class={cx(classes[`${_variant}Variant`], classes.input, {
+				[classes.withIcon]: $$slots.icon,
+				[classes.invalid]: invalid,
+				[classes.disabled]: disabled
+			})}
+		/>
+	{:else}
+		<div
+			{id}
+			{...rest}
+			aria-invalid={invalid}
+			class={cx(classes[`${_variant}Variant`], classes.input, {
+				[classes.withIcon]: $$slots.icon,
+				[classes.invalid]: invalid,
+				[classes.disabled]: disabled
+			})}
+		>
+			<slot />
+		</div>
+	{/if}
+
+	{#if $$slots.rightSection}
 		<div {...rightSectionProps} class={classes.rightSection}>
-			{rightSection}
+			<slot name="rightSection" />
 		</div>
 	{/if}
 </Box>

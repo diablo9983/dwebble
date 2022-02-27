@@ -1,17 +1,14 @@
 <script lang="ts">
+	/* Adds red asterisk on the right side of label and sets required on input element */
 	import {SvelteComponent} from "svelte";
+	import {CSSProperties} from "@emotion/serialize";
+	import {CSSObject, DwebbleSize, DwebbleTheme, extractMargins, useDwebbleContext, ProviderStyles, useDwebbleTheme} from "../../styles/src";
+	import {useUuid} from "../../hooks/useUuid";
 	import InputWrapper from "../InputWrapper/InputWrapper.svelte";
 	import Input from "../Input/Input.svelte";
-	import {useUuid} from "../../hooks/useUuid";
-	import type {DwebbleSize} from "../../styles/src";
-	import type {TextInputTypes} from "./TextInput.types";
-	import {extractMargins} from "../../styles/src";
-	import type {ProviderStyles} from "../../styles/src";
-	import {CSSObject, DwebbleTheme} from "../../styles/src";
-	import type {CSSProperties} from "@emotion/serialize";
+	import useStyles, {rightSectionSizes} from "./PasswodInput.styles";
 	import {InputVariant} from "../Input";
 
-	/* Adds red asterisk on the right side of label and sets required on input element */
 	export let required = false;
 
 	/* Input label, displayed before input */
@@ -29,17 +26,19 @@
 	/* Adds icon on the left side of input */
 	export let icon: SvelteComponent|null = null;
 
-	/* Input element type */
-	export let type: TextInputTypes = "text";
-
 	/* Defines input appearance, defaults to default in light color scheme and filled in dark */
 	export let variant: InputVariant = "default";
 
 	/* Props passed to root element (InputWrapper component) */
 	export let wrapperProps: { [key: string]: any } = {}
 
+	/* Disabled input state */
+	export let disabled = false;
+
 	/* Input size */
 	export let size: DwebbleSize = "sm";
+
+	export let toggleTabIndex: -1 | 0 = -1;
 
 	/* Shared Props */
 	/* Additional class names */
@@ -59,41 +58,69 @@
 	export { className as class };
 
 	/* Component margins */
-	const { margins } = extractMargins($$restProps);
+	const { margins, rest } = extractMargins($$restProps);
 	/* Shared props end */
 
 	/* Unique uuid */
 	const uuid = useUuid(id);
+
+	let revealed = false;
+
+	const theme = useDwebbleTheme();
+	const rightSectionWidth = theme.fn.size({ size, sizes: rightSectionSizes });
+
+	let classes, cx;
+	const { dwebbleTheme, dwebbleStyles } = useDwebbleContext();
+	$: if ($dwebbleTheme || $dwebbleStyles) {
+		const elementStyles = useStyles({ size, rightSectionWidth }, { name: "PasswordInput" });
+		classes = elementStyles.classes;
+		cx = elementStyles.cx;
+	}
 </script>
 
 <InputWrapper
 	{required}
+	id={uuid}
 	{label}
 	{error}
-	id={uuid}
 	{description}
 	{size}
 	class={className}
 	{style}
 	{classNames}
 	{styles}
+	__staticSelector="PasswordInput"
 	{sx}
 	{...margins}
-	__staticSelector="TextInput"
-	{...wrapperProps}>
+	{...wrapperProps}
+>
 	<Input
-		on:input
-		on:change
-		{...$$restProps}
 		{required}
-		id={uuid}
-		{type}
 		invalid={!!error}
-		{icon}
 		{size}
-		{classNames}
+		classNames={{...classNames, input: cx(classes.input, classNames?.input)}}
 		{styles}
+		{disabled}
+		__staticSelector="PasswordInput"
+		rightSection=""
+		{rightSectionWidth}
 		{variant}
-		__staticSelector="TextInput"
-	/>
+	>
+		<input
+			on:input
+			on:change
+			type={revealed ? 'text' : 'password'}
+			class={cx(classes.innerInput, {
+              [classes.withIcon]: icon,
+              [classes.invalid]: !!error,
+            })}
+			{disabled}
+			id={uuid}
+			{...rest}
+		/>
+
+		<div slot="rightSection">
+
+		</div>
+	</Input>
 </InputWrapper>
