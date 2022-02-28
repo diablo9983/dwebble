@@ -1,0 +1,15 @@
+<script>
+	export let color = "currentColor";
+	export let strokeWidth = 2;
+	export let size = 24;
+	export let width;
+	export let height;
+	
+	let iconWidth, iconHeight;
+	$: if (size || width || height) {
+		iconWidth = (width || size + "px");
+		iconHeight = (width || size + "px");
+	}
+</script>
+
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-building-bridge" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" width={iconWidth} height={iconHeight} stroke-width={strokeWidth} stroke={color} {...$$restProps}>   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>   <line x1="6" y1="5" x2="6" y2="19" />   <line x1="18" y1="5" x2="18" y2="19" />   <line x1="2" y1="15" x2="22" y2="15" />   <path d="M3 8a7.5 7.5 0 0 0 3 -2a6.5 6.5 0 0 0 12 0a7.5 7.5 0 0 0 3 2" />   <line x1="12" y1="10" x2="12" y2="15" /> </svg>
