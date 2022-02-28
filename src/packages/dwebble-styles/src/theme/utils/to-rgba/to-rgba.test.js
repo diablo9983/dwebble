@@ -1,4 +1,4 @@
-import { toRgba } from './to-rgba';
+import { toRgba } from './to-rgba.ts';
 
 describe('@dwebble/styles/to-rgba', () => {
 	it('returns the correct rgba values when given a hex string', () => {

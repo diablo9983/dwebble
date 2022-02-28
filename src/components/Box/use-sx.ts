@@ -1,5 +1,5 @@
-import type {CSSObject, DwebbleMargins, DwebbleTheme} from "../../styles/src";
-import {useCss, useDwebbleTheme} from "../../styles/src";
+import type {CSSObject, DwebbleMargins, DwebbleTheme} from "../../packages/dwebble-styles/src";
+import {useCss, useDwebbleTheme} from "../../packages/dwebble-styles/src";
 import {getMargins} from "./get-margins";
 
 type Sx = CSSObject | ((theme: DwebbleTheme) => CSSObject);

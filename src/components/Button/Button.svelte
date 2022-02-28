@@ -1,9 +1,9 @@
 <script lang="ts">
 	import useStyles, {heights} from './Button.styles';
-	import {getSharedColorScheme, useDwebbleContext} from "../../styles/src";
+	import {getSharedColorScheme, useDwebbleContext} from "../../packages/dwebble-styles/src";
 	import {Loader} from "../Loader";
 	import type { ButtonVariant } from "./Button.types";
-	import type {DwebbleColor, DwebbleSize} from "../../styles/src";
+	import type {DwebbleColor, DwebbleSize} from "../../packages/dwebble-styles/src";
 	import type {LoaderProps} from "../Loader";
 
 	export let type = "button";

@@ -1,4 +1,4 @@
-import type {DwebbleColor, DwebbleNumberSize, DwebbleSize, DwebbleTheme} from "../../styles/src";
+import type {DwebbleColor, DwebbleNumberSize, DwebbleSize, DwebbleTheme} from "../../packages/dwebble-styles/src";
 
 export type ButtonVariant =
 	| 'filled'

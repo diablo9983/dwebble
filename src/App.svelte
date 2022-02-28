@@ -3,8 +3,8 @@
 	/* PLAYGROUND */
 	/**************/
 
-	import {DWEBBLE_COLORS, DwebbleProvider} from "./styles/src";
-	import type {DwebbleTheme} from "./styles/src";
+	import {DWEBBLE_COLORS, DwebbleProvider} from "./packages/dwebble-styles/src";
+	import type {DwebbleTheme} from "./packages/dwebble-styles/src";
 	import TextInput from "./components/TextInput/TextInput.svelte";
 	import PasswordInput from "./components/PasswordInput/PasswordInput.svelte";
 

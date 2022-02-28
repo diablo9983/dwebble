@@ -6,9 +6,11 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "compile-icons": "node src/packages/dwebble-icons/build.js"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.5",
     "@emotion/cache": "^11.7.1",
     "@emotion/css": "^11.7.1",
     "@emotion/serialize": "^1.0.2",
@@ -17,9 +19,13 @@
     "@rollup/plugin-node-resolve": "^11.0.0",
     "@rollup/plugin-replace": "^3.1.0",
     "@rollup/plugin-typescript": "^8.0.0",
+    "@tabler/icons": "^1.54.0",
     "@tsconfig/svelte": "^2.0.0",
+    "@types/jest": "^27.4.1",
     "clsx": "^1.1.1",
     "csstype": "^3.0.10",
+    "fs-extra": "^10.0.1",
+    "pascal-case": "^3.1.2",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -28,6 +34,7 @@
     "svelte": "^3.0.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
+    "tabler-icons-svelte": "^1.7.0",
     "tslib": "^2.0.0",
     "typescript": "^4.0.0"
   },

@@ -2,7 +2,7 @@
 	/* Adds red asterisk on the right side of label and sets required on input element */
 	import {SvelteComponent} from "svelte";
 	import {CSSProperties} from "@emotion/serialize";
-	import {CSSObject, DwebbleSize, DwebbleTheme, extractMargins, useDwebbleContext, ProviderStyles, useDwebbleTheme} from "../../styles/src";
+	import {CSSObject, DwebbleSize, DwebbleTheme, extractMargins, useDwebbleContext, ProviderStyles, useDwebbleTheme} from "../../packages/dwebble-styles/src";
 	import {useUuid} from "../../hooks/useUuid";
 	import InputWrapper from "../InputWrapper/InputWrapper.svelte";
 	import Input from "../Input/Input.svelte";

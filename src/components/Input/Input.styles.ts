@@ -1,4 +1,4 @@
-import {createStyles} from "../../styles/src";
+import {createStyles} from "../../packages/dwebble-styles/src";
 import type {InputStyles} from "./Input.types";
 
 export const sizes = {

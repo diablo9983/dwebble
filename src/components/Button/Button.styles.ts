@@ -1,6 +1,6 @@
-import type {DwebbleSize, DwebbleSizes} from "../../styles/src";
+import type {DwebbleSize, DwebbleSizes} from "../../packages/dwebble-styles/src";
 import type {ButtonStylesProps, GetVariantStyles} from "./Button.types";
-import {createStyles, getSharedColorScheme} from "../../styles/src";
+import {createStyles, getSharedColorScheme} from "../../packages/dwebble-styles/src";
 import {INPUT_SIZES} from "../Input";
 
 const sizes = {

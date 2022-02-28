@@ -2,10 +2,10 @@
 	import {SvelteComponent} from "svelte";
 	import useStyles from "./Input.styles";
 	import type {InputVariant} from "./Input.types";
-	import type {CSSObject, DwebbleTheme, DwebbleNumberSize, DwebbleSize} from "../../styles/src";
-	import {extractMargins, useDwebbleContext} from "../../styles/src";
+	import type {CSSObject, DwebbleTheme, DwebbleNumberSize, DwebbleSize} from "../../packages/dwebble-styles/src";
+	import {extractMargins, useDwebbleContext} from "../../packages/dwebble-styles/src";
 	import {CSSProperties} from "@emotion/serialize";
-	import {ProviderStyles} from "../../styles/src/theme/types/DwebbleProvider";
+	import {ProviderStyles} from "../../packages/dwebble-styles/src/theme/types/DwebbleProvider";
 	import Box from "../Box/Box.svelte";
 
 	/* id is used to bind input and label, if not passed unique id will be generated for each input */

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import {CSSProperties} from "@emotion/serialize";
-	import {ProviderStyles} from "../../styles/src/theme/types/DwebbleProvider";
-	import {CSSObject, DwebbleSize, DwebbleTheme, extractMargins, useDwebbleContext} from "../../styles/src";
+	import {ProviderStyles} from "../../packages/dwebble-styles/src/theme/types/DwebbleProvider";
+	import {CSSObject, DwebbleSize, DwebbleTheme, extractMargins, useDwebbleContext} from "../../packages/dwebble-styles/src";
 	import useStyles from "./InputWrapper.styles";
 	import Box from "../Box/Box.svelte";
 	import Text from "../Text/Text.svelte";

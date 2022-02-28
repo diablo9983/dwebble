@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type {DwebbleColor} from "../../../styles/src";
+	import type {DwebbleColor} from "../../../packages/dwebble-styles/src";
 
 	export let color: DwebbleColor;
 	export let size: number;

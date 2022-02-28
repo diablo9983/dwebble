@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {SvelteComponent} from "svelte";
 	import {CSSProperties} from "@emotion/serialize";
-	import type {CSSObject, DwebbleTheme} from "../../styles/src";
-	import {extractMargins} from "../../styles/src";
+	import type {CSSObject, DwebbleTheme} from "../../packages/dwebble-styles/src";
+	import {extractMargins} from "../../packages/dwebble-styles/src";
 	import {useSx} from "./use-sx.js";
 
 	export let component: SvelteComponent|null = null;

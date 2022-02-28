@@ -1,4 +1,4 @@
-import type {CSSObject, DwebbleMargins, DwebbleTheme} from "../../styles/src";
+import type {CSSObject, DwebbleMargins, DwebbleTheme} from "../../packages/dwebble-styles/src";
 
 function isValidMargin(margin: any) {
 	return typeof margin === 'string' || typeof margin === 'number';

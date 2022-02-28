@@ -1,4 +1,4 @@
-import {createStyles, CSSObject, DwebbleColor, DwebbleSize, DwebbleTheme, getSharedColorScheme} from "../../styles/src";
+import {createStyles, CSSObject, DwebbleColor, DwebbleSize, DwebbleTheme, getSharedColorScheme} from "../../packages/dwebble-styles/src";
 import type {Properties} from "csstype";
 
 interface TextStyles {
