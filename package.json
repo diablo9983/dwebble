@@ -21,6 +21,7 @@
     "@rollup/plugin-typescript": "^8.0.0",
     "@tabler/icons": "^1.54.0",
     "@tsconfig/svelte": "^2.0.0",
+    "@types/fs-extra": "^9.0.13",
     "@types/jest": "^27.4.1",
     "clsx": "^1.1.1",
     "csstype": "^3.0.10",
