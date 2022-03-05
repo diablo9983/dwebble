@@ -19,7 +19,7 @@
 	export let loaderPosition: "left" | "right" = "left";
 	export let classNames: string = "";
 	export let styles = {};
-	export let loaderProps: Partial<LoaderProps> = {};
+	export let loaderProps: LoaderProps = {};
 
 	const { dwebbleTheme, dwebbleStyles } = useDwebbleContext();
 
