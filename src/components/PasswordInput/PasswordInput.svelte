@@ -6,7 +6,7 @@
 	import {useUuid} from "../../hooks/useUuid";
 	import InputWrapper from "../InputWrapper/InputWrapper.svelte";
 	import Input from "../Input/Input.svelte";
-	import useStyles, {rightSectionSizes} from "./PasswodInput.styles";
+	import useStyles, {rightSectionSizes, buttonSizes, iconSizes} from "./PasswordInput.styles";
 	import {InputVariant} from "../Input";
 
 	export let required = false;
