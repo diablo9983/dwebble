@@ -1,4 +1,4 @@
-import { DwebbleTheme } from "../types/DwebbleTheme";
+import type { DwebbleTheme } from "../types";
 
 interface GetSharedColorScheme {
 	color?: string;
