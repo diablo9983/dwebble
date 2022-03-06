@@ -24,11 +24,30 @@
 </script>
 
 {#if component}
-	<svelte:component this={component} class={useSx(sx, margins, className)} style={style} {...rest}>
+	<svelte:component
+		on:keydown
+		on:keyup
+		on:mouseup
+		on:mousedown
+		on:click
+		this={component}
+		class={useSx(sx, margins, className)}
+		style={style}
+		{...rest}
+	>
 		<slot />
 	</svelte:component>
 {:else}
-	<div class={useSx(sx, margins, className)} style={style} {...rest}>
+	<div
+		on:keydown
+		on:keyup
+		on:mouseup
+		on:mousedown
+		on:click
+		class={useSx(sx, margins, className)}
+		style={style}
+		{...rest}
+	>
 		<slot />
 	</div>
 {/if}
