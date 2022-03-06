@@ -7,8 +7,8 @@
 	
 	let iconWidth, iconHeight;
 	$: if (size || width || height) {
-		iconWidth = (width || size + "px");
-		iconHeight = (width || size + "px");
+		iconWidth = (width || size) + "px";
+		iconHeight = (height || size) + "px";
 	}
 </script>
 
