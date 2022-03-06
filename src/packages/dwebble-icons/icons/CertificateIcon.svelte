@@ -2,8 +2,8 @@
 	export let color = "currentColor";
 	export let strokeWidth = 2;
 	export let size = 24;
-	export let width;
-	export let height;
+	export let width = undefined;
+	export let height = undefined;
 	
 	let iconWidth, iconHeight;
 	$: if (size || width || height) {
