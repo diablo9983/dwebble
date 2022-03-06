@@ -8,6 +8,9 @@
 	import Input from "../Input/Input.svelte";
 	import useStyles, {rightSectionSizes, buttonSizes, iconSizes} from "./PasswordInput.styles";
 	import {InputVariant} from "../Input";
+	import ActionIcon from "../ActionIcon/ActionIcon.svelte";
+	import {useBooleanToggle} from "../../hooks/useToggle";
+	import PasswordToggleIcon from "./PasswordToggleIcon.svelte";
 
 	export let required = false;
 
@@ -64,7 +67,7 @@
 	/* Unique uuid */
 	const uuid = useUuid(id);
 
-	let revealed = false;
+	const [reveal, toggle] = useBooleanToggle(false);
 
 	const theme = useDwebbleTheme();
 	const rightSectionWidth = theme.fn.size({ size, sizes: rightSectionSizes });
@@ -102,14 +105,13 @@
 		{styles}
 		{disabled}
 		__staticSelector="PasswordInput"
-		rightSection=""
 		{rightSectionWidth}
 		{variant}
 	>
 		<input
 			on:input
 			on:change
-			type={revealed ? 'text' : 'password'}
+			type={$reveal ? 'text' : 'password'}
 			class={cx(classes.innerInput, {
               [classes.withIcon]: icon,
               [classes.invalid]: !!error,
@@ -119,8 +121,27 @@
 			{...rest}
 		/>
 
-		<div slot="rightSection">
-
-		</div>
+		<svelte:fragment slot="rightSection">
+			{#if !disabled}
+				<ActionIcon
+					class={classes.visibilityToggle}
+					tabIndex={toggleTabIndex}
+					size={theme.fn.size({ size, sizes: buttonSizes })}
+					aria-hidden
+					on:mousedown={event => {
+						event.preventDefault();
+						toggle();
+					}}
+					on:keydown={event => {
+						if (event.code === "Space") {
+							event.preventDefault();
+							toggle();
+						}
+					}}
+				>
+					<PasswordToggleIcon reveal={$reveal} size={theme.fn.size({ size, sizes: iconSizes })} />
+				</ActionIcon>
+			{/if}
+		</svelte:fragment>
 	</Input>
 </InputWrapper>
