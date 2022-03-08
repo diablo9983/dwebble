@@ -12,6 +12,9 @@
     "baseUrl": ".",
     "declaration": true,
     "declarationMap": true,
-    "declarationDir": "lib"
+    "declarationDir": "lib",
+    "paths": {
+      "@dwebble/styles": ["src/packages/dwebble-styles/src"]
+    }
   }
 }

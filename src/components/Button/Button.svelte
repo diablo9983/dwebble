@@ -3,7 +3,7 @@
 	import {getSharedColorScheme, useDwebbleContext} from "../../packages/dwebble-styles/src";
 	import {Loader} from "../Loader";
 	import type { ButtonVariant } from "./Button.types";
-	import type {DwebbleColor, DwebbleSize} from "../../packages/dwebble-styles/src";
+	import type {DwebbleColor, DwebbleSize} from "@dwebble/styles";
 	import type {LoaderProps} from "../Loader";
 
 	export let type = "button";
@@ -49,6 +49,7 @@
 	class={cx(classes[variant], { [classes.loading]: loading }, classes.root )}
 	{type}
 	disabled={disabled || loading}
+	on:click
 	{...$$restProps}
 >
 	<span class={classes.inner}>

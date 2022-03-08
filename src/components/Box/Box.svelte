@@ -1,9 +1,8 @@
 <script lang="ts">
 	import {SvelteComponent} from "svelte";
 	import {CSSProperties} from "@emotion/serialize";
-	import type {CSSObject, DwebbleTheme} from "../../packages/dwebble-styles/src";
-	import {extractMargins} from "../../packages/dwebble-styles/src";
-	import {useSx} from "./use-sx.js";
+	import {extractMargins} from "@dwebble/styles";
+	import {BoxSx, useSx} from "./use-sx.js";
 
 	export let component: SvelteComponent|null = null;
 
@@ -12,7 +11,9 @@
 	export let style: CSSProperties|null = null;
 
 	/* Component root element style */
-	export let sx: CSSObject | ((theme: DwebbleTheme) => CSSObject) = {};
+	export let sx: BoxSx = {};
+
+	export let ref = null;
 
 	/* Component additional class name */
 	let className = "";
@@ -21,6 +22,9 @@
 	/* Component margins */
 	const { margins, rest } = extractMargins($$restProps);
 	/* Shared props end */
+
+	let componentClass;
+	$: componentClass = useSx(sx, margins, className);
 </script>
 
 {#if component}
@@ -31,7 +35,7 @@
 		on:mousedown
 		on:click
 		this={component}
-		class={useSx(sx, margins, className)}
+		class={componentClass}
 		style={style}
 		{...rest}
 	>
@@ -44,7 +48,8 @@
 		on:mouseup
 		on:mousedown
 		on:click
-		class={useSx(sx, margins, className)}
+		bind:this={ref}
+		class={componentClass}
 		style={style}
 		{...rest}
 	>

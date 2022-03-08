@@ -3,10 +3,12 @@
 	/* PLAYGROUND */
 	/**************/
 
-	import {DWEBBLE_COLORS, DwebbleProvider} from "./packages/dwebble-styles/src";
-	import type {DwebbleTheme} from "./packages/dwebble-styles/src";
+	import {DwebbleProvider} from "@dwebble/styles";
+	import type {DwebbleTheme} from "@dwebble/styles";
 	import TextInput from "./components/TextInput/TextInput.svelte";
 	import PasswordInput from "./components/PasswordInput/PasswordInput.svelte";
+	import Slider from "./components/Slider/Slider/Slider.svelte";
+	import Button from "./components/Button/Button.svelte";
 
 	export let name: string;
 
@@ -29,15 +31,20 @@
 <DwebbleProvider {theme}>
 	<main>
 		<h1>Hello {name}!</h1>
-		<button disabled={!theme.colorScheme || theme.colorScheme === "light"} on:click={() => setScheme("light")}>Light</button>
-		<button disabled={theme.colorScheme === "dark"} on:click={() => setScheme("dark")}>Dark</button>
+		<Button on:click={() => setScheme("light")} disabled={!theme.colorScheme || theme.colorScheme === "light"}>Light</Button>
+		<Button on:click={() => setScheme("dark")} disabled={theme.colorScheme === "dark"}>Dark</Button>
 		<hr>
 	</main>
 
 	<div>
 		<TextInput label="Text Input" />
-
 		<PasswordInput label="Password Input" />
+		<p>Slider</p>
+		<Slider marks={[
+			{ value: 20, label: '20%' },
+			{ value: 50, label: '50%' },
+			{ value: 80, label: '80%' },
+		]} />
 	</div>
 </DwebbleProvider>
 
