@@ -3,6 +3,7 @@ import type {Tuple} from "./Tuple";
 import type {DwebbleNumberSize, DwebbleSize, DwebbleSizes} from "./DwebbleSize";
 import type {CSSObject} from "../../tss";
 import type {DeepPartial} from "./DeepPartial";
+import type {CSSProperties} from "../../tss/types/css-object";
 
 export type LoaderType = 'bars' | 'oval' | 'dots';
 export type DwebbleThemeOther = Record<string, any>;
@@ -36,6 +37,7 @@ export interface DwebbleTheme {
 	fontFamily: Property.FontFamily;
 	fontFamilyMonospace: Property.FontFamily,
 	lineHeight: Property.LineHeight;
+	transitionTimingFunction: CSSProperties['transitionTimingFunction'];
 	primaryColor: string;
 	fontSizes: DwebbleSizes;
 	radius: DwebbleSizes;

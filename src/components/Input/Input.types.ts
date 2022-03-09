@@ -1,5 +1,5 @@
 import type useStyles from "./Input.styles";
-import type {ClassNames, DwebbleNumberSize, DwebbleSize} from "../../packages/dwebble-styles/src";
+import type {ClassNames, DwebbleNumberSize, DwebbleSize} from "@dwebble/styles";
 
 export type InputVariant = 'default' | 'filled' | 'unstyled' | 'headless';
 

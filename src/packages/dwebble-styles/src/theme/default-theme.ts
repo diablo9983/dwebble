@@ -12,6 +12,7 @@ export const _DEFAULT_THEME: DwebbleThemeBase = {
 	black: '#000',
 	colors: DEFAULT_COLORS,
 	lineHeight: 1.55,
+	transitionTimingFunction: 'cubic-bezier(.51,.3,0,1.21)',
 	fontFamily:
 		'-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
 	fontFamilyMonospace:

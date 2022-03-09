@@ -9,6 +9,7 @@
 	import PasswordInput from "./components/PasswordInput/PasswordInput.svelte";
 	import Slider from "./components/Slider/Slider/Slider.svelte";
 	import Button from "./components/Button/Button.svelte";
+	import SegmentedControl from "./components/SegmentedControl/SegmentedControl.svelte";
 
 	export let name: string;
 
@@ -45,6 +46,16 @@
 			{ value: 50, label: '50%' },
 			{ value: 80, label: '80%' },
 		]} />
+
+		<p>Segmented Control</p>
+		<SegmentedControl data={[
+			{ label: 'React', value: 'react' },
+			{ label: 'Angular', value: 'ng' },
+			{ label: 'Vue', value: 'vue' },
+			{ label: 'Svelte', value: 'svelte' },
+		]} value="ng" on:change={({ detail }) => {
+			console.log({detail});
+		}} />
 	</div>
 </DwebbleProvider>
 
