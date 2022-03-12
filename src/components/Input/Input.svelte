@@ -6,6 +6,8 @@
 	import {CSSProperties} from "@emotion/serialize";
 	import Box from "../Box/Box.svelte";
 
+	export let ref = null;
+
 	/* id is used to bind input and label, if not passed unique id will be generated for each input */
 	export let id = "";
 
@@ -47,6 +49,8 @@
 
 	/** Static css selector base */
 	export let __staticSelector: string;
+
+	export let value = "";
 
 	/* Shared Props */
 	/* Additional class names */
@@ -108,11 +112,10 @@
 
 	{#if !$$slots.default}
 		<input
-			on:input
-			on:change
-			{id}
 			{...rest}
+			{id}
 			{required}
+			{value}
 			aria-invalid={invalid}
 			{disabled}
 			class={cx(classes[`${_variant}Variant`], classes.input, {
@@ -120,6 +123,13 @@
 				[classes.invalid]: invalid,
 				[classes.disabled]: disabled
 			})}
+			on:blur
+			on:focus
+			on:keydown
+			on:keyup
+			on:input
+			on:change
+			bind:this={ref}
 		/>
 	{:else}
 		<div
