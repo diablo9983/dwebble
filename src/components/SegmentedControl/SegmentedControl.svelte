@@ -140,16 +140,6 @@
 	bind:ref={container}
 	{...$$restProps}
 >
-	{#if !!$_value}
-		<Box
-			class={classes.active}
-			sx={{
-				width: activePosition.width,
-        height: activePosition.height,
-        transform: `translate(${activePosition.translate[0]}px, ${activePosition.translate[1]}px )`
-			}}
-		/>
-	{/if}
 	{#each data as item (item.value)}
 		<div
 			class={cx(classes.control, { [classes.controlActive]: $_value === item.value })}
@@ -176,4 +166,14 @@
 			</label>
 		</div>
 	{/each}
+	{#if !!$_value}
+		<Box
+			class={classes.active}
+			sx={{
+				width: activePosition.width,
+        height: activePosition.height,
+        transform: `translate(${activePosition.translate[0]}px, ${activePosition.translate[1]}px )`
+			}}
+		/>
+	{/if}
 </Box>
