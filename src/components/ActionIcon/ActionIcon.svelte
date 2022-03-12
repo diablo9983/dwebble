@@ -1,12 +1,11 @@
 <script lang="ts">
-	import type {DwebbleColor, DwebbleSize} from "../../packages/dwebble-styles/src";
+	import type {DwebbleColor, DwebbleSize} from "@dwebble/styles";
 	import type {ActionIconVariant} from "./ActionIcon.types";
 	import type {LoaderProps} from "../Loader";
-	import {getSharedColorScheme, ProviderStyles, useDwebbleContext} from "../../packages/dwebble-styles/src";
+	import {getSharedColorScheme, ProviderStyles, useDwebbleContext, useDwebbleTheme} from "@dwebble/styles";
 	import useStyles, {sizes} from "./ActionIcon.styles";
 	import Box from "../Box/Box.svelte";
 	import {Loader} from "../Loader/index.js";
-	import {useDwebbleTheme} from "../../packages/dwebble-styles/src";
 
 	/** Button hover, active and icon colors from theme */
 	export let color: DwebbleColor = "gray";

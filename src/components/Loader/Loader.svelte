@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type {DwebbleColor, DwebbleNumberSize, DwebbleTheme} from "../../packages/dwebble-styles/src";
-	import {useDwebbleTheme} from "../../packages/dwebble-styles/src";
+	import type {DwebbleColor, DwebbleNumberSize, DwebbleTheme} from "@dwebble/styles";
+	import {useDwebbleTheme} from "@dwebble/styles";
 	import {LOADERS, LOADER_SIZES} from "./Loader.styles";
 
 	const theme = useDwebbleTheme();

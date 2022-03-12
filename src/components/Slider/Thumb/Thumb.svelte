@@ -1,9 +1,8 @@
 <script lang="ts">
 	import type {DwebbleColor, DwebbleSize} from "@dwebble/styles";
 	import useStyles from "./Thumb.styles";
-	import {ProviderStyles, useDwebbleContext} from "@dwebble/styles";
+	import {ProviderStyles, useDwebbleContext, useDwebbleTheme} from "@dwebble/styles";
 	import Box from "../../Box/Box.svelte";
-	import {useDwebbleTheme} from "@dwebble/styles";
 	import {createEventDispatcher} from "svelte";
 	import {fade} from "svelte/transition";
 

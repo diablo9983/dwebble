@@ -1,10 +1,8 @@
 <script lang="ts">
-	import type {DwebbleColor, DwebbleSize} from "../../packages/dwebble-styles/src";
+	import type {DwebbleColor, DwebbleSize, DwebbleGradient} from "@dwebble/styles";
 	import type {Properties} from "csstype";
-	import type {DwebbleGradient} from "../../packages/dwebble-styles/src/theme/utils/get-shared-color-scheme";
-	import {ProviderStyles} from "../../packages/dwebble-styles/src/theme/types/DwebbleProvider";
+	import {ProviderStyles, useDwebbleContext} from "@dwebble/styles";
 	import Box from "../Box/Box.svelte";
-	import {useDwebbleContext} from "../../packages/dwebble-styles/src";
 	import useStyles from "../Text/Text.styles";
 
 	/* Predefined font-size from theme.fontSizes */

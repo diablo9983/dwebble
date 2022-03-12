@@ -1,5 +1,5 @@
-import type {DwebbleSize} from "../../packages/dwebble-styles/src";
-import {createStyles} from "../../packages/dwebble-styles/src";
+import type {DwebbleSize} from "@dwebble/styles";
+import {createStyles} from "@dwebble/styles";
 
 interface InputWrapperStyles {
 	size: DwebbleSize;

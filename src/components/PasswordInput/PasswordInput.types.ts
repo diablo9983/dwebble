@@ -1,4 +1,4 @@
-import type {ClassNames, DwebbleSize} from "../../packages/dwebble-styles/src";
+import type {ClassNames, DwebbleSize} from "@dwebble/styles";
 import type useStyles from "./PasswordInput.styles";
 import type {TextInputStylesNames} from "../TextInput/TextInput.types";
 

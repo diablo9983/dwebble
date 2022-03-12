@@ -1,4 +1,4 @@
-import type {DwebbleColor, DwebbleNumberSize, DwebbleTheme} from "../../packages/dwebble-styles/src";
+import type {DwebbleColor, DwebbleNumberSize, DwebbleTheme} from "@dwebble/styles";
 
 export type ActionIconVariant =
 	| 'hover'

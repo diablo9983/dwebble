@@ -3,11 +3,9 @@
 	import InputWrapper from "../InputWrapper/InputWrapper.svelte";
 	import Input from "../Input/Input.svelte";
 	import {useUuid} from "../../hooks/useUuid";
-	import type {DwebbleSize} from "../../packages/dwebble-styles/src";
+	import type {DwebbleSize, ProviderStyles} from "@dwebble/styles";
 	import type {TextInputTypes} from "./TextInput.types";
-	import {extractMargins} from "../../packages/dwebble-styles/src";
-	import type {ProviderStyles} from "../../packages/dwebble-styles/src";
-	import {CSSObject, DwebbleTheme} from "../../packages/dwebble-styles/src";
+	import {CSSObject, DwebbleTheme, extractMargins} from "@dwebble/styles";
 	import type {CSSProperties} from "@emotion/serialize";
 	import {InputVariant} from "../Input";
 

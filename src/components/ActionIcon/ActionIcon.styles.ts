@@ -1,4 +1,4 @@
-import {createStyles, getSharedColorScheme} from "../../packages/dwebble-styles/src";
+import {createStyles, getSharedColorScheme} from "@dwebble/styles";
 import type {ActionIconStyles, GetVariantStyles} from "./ActionIcon.types";
 
 export const sizes = {
