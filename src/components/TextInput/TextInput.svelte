@@ -100,5 +100,9 @@
 		{styles}
 		{variant}
 		__staticSelector="TextInput"
-	/>
+	>
+		<svelte:fragment slot="rightSection">
+			<slot name="rightSection" />
+		</svelte:fragment>
+	</Input>
 </InputWrapper>
