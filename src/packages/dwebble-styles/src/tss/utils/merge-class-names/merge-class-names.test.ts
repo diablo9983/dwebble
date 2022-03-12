@@ -6,20 +6,20 @@ const classes = {
 	title: 'title-1',
 };
 
-describe('@mantine/tss/merge-class-names', () => {
+describe('@dwebble/tss/merge-class-names', () => {
 	it('merges classNames correctly', () => {
 		expect(
 			mergeClassNames(cx, classes, { root: 'root-test', title: 'title-test' }, 'alert')
 		).toEqual({
-			root: 'root-1 root-test mantine-alert-root',
-			title: 'title-1 title-test mantine-alert-title',
+			root: 'root-1 root-test dwebble-alert-root',
+			title: 'title-1 title-test dwebble-alert-title',
 		});
 	});
 
 	it('merges classNames partial correctly', () => {
 		expect(mergeClassNames(cx, classes, { root: 'root-test' }, 'alert')).toEqual({
-			root: 'root-1 root-test mantine-alert-root',
-			title: 'title-1 mantine-alert-title',
+			root: 'root-1 root-test dwebble-alert-root',
+			title: 'title-1 dwebble-alert-title',
 		});
 	});
 });
