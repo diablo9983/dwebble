@@ -10,6 +10,7 @@
 	import Slider from "./components/Slider/Slider/Slider.svelte";
 	import Button from "./components/Button/Button.svelte";
 	import SegmentedControl from "./components/SegmentedControl/SegmentedControl.svelte";
+	import NumberInput from "./components/NumberInput/NumberInput.svelte";
 
 	export let name: string;
 
@@ -56,6 +57,9 @@
 		]} value="ng" on:change={({ detail }) => {
 			console.log({detail});
 		}} />
+
+		<p>NumberInput</p>
+		<NumberInput placeholder="Enter value" />
 	</div>
 </DwebbleProvider>
 
