@@ -9,6 +9,8 @@
 	import type {CSSProperties} from "@emotion/serialize";
 	import {InputVariant} from "../Input";
 
+	export let ref = null;
+
 	/* Adds red asterisk on the right side of label and sets required on input element */
 	export let required = false;
 
@@ -80,12 +82,17 @@
 	__staticSelector="TextInput"
 	{...wrapperProps}>
 	<Input
+		{...$$restProps}
+		on:blur
+		on:focus
+		on:keydown
+		on:keyup
 		on:input
 		on:change
-		{...$$restProps}
 		{required}
 		id={uuid}
 		{type}
+		bind:ref={ref}
 		invalid={!!error}
 		{icon}
 		{size}
