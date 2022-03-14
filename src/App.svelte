@@ -11,6 +11,7 @@
 	import Button from "./components/Button/Button.svelte";
 	import SegmentedControl from "./components/SegmentedControl/SegmentedControl.svelte";
 	import NumberInput from "./components/NumberInput/NumberInput.svelte";
+	import RadioGroup from "./components/RadioGroup/RadioGroup.svelte";
 
 	export let name: string;
 
@@ -27,6 +28,8 @@
 		}
 	}
 
+	let checkedRadio = "three";
+
 	const variants = ['light', 'outline', 'subtle', 'default'];
 </script>
 
@@ -39,8 +42,16 @@
 	</main>
 
 	<div>
-		<TextInput label="Text Input" />
-		<PasswordInput label="Password Input" />
+		<TextInput  wrapperProps={{
+			label: "Text input",
+			description: "Text input description",
+			mt: "md"
+		}} label="Text Input" />
+		<PasswordInput  wrapperProps={{
+			label: "Password input",
+			description: "Password input description",
+			mt: "md"
+		}} label="Password Input" />
 		<p>Slider</p>
 		<Slider marks={[
 			{ value: 20, label: '20%' },
@@ -58,8 +69,27 @@
 			console.log({detail});
 		}} />
 
-		<p>NumberInput</p>
-		<NumberInput placeholder="Enter value" />
+		<NumberInput  wrapperProps={{
+			label: "Number input",
+			description: "Number input description",
+			mt: "md"
+		}} placeholder="Enter value" />
+
+
+		<RadioGroup wrapperProps={{
+			label: "Radio group",
+			description: "Radio group description",
+			mt: "md"
+		}} options={[{
+			label: "option one",
+			value: "one"
+		}, {
+			label: "option two",
+			value: "two"
+		}, {
+			label: "option three",
+			value: "three"
+		}]} bind:value={checkedRadio} />
 	</div>
 </DwebbleProvider>
 
