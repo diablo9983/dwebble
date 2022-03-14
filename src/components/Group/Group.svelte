@@ -36,7 +36,6 @@
 	/* Shared props end */
 
 	let classes, cx;
-	let theme = useDwebbleTheme();
 	const { dwebbleTheme, dwebbleStyles } = useDwebbleContext();
 	$: if ($dwebbleTheme || $dwebbleStyles) {
 		const elementStyles = useStyles({
@@ -50,7 +49,6 @@
 
 		classes = elementStyles.classes;
 		cx = elementStyles.cx;
-		theme = elementStyles.theme;
 	}
 </script>
 
