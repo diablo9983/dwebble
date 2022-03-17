@@ -62,12 +62,14 @@
 		{spacing}
 		direction={orientation === 'horizontal' ? 'row' : 'column'}
 		style={{ paddingTop: 5 }}
+		let:class={classes}
 	>
 		{#each options as option (option.value)}
 			<Radio
 				label={option.label}
 				value={option.value}
 				name={uuid}
+				class={classes}
 				{color}
 				{size}
 				{classNames}
